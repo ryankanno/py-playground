@@ -4,10 +4,11 @@
 import argparse
 import platform
 import logging
-import sys
 import os
-import time
 import string
+import sys
+import time
+import traceback
 
 # I love this to abstract out httplib, urllib, etc complexities
 import mechanize
@@ -96,11 +97,12 @@ def main(argv=None):
         else:
             do_crawl_son(args)
     except Exception as e:
-        logging.error("OMGWTFBBQ: {0}".format(e.args))
+        trace = traceback.format_exc()
+        logging.error("OMGWTFBBQ: {0}".format(trace))
         sys.exit(1)
 
     # Yayyy-yah
-    return 0
+    sys.exit(0)
 
 
 def _test():

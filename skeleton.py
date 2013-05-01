@@ -6,6 +6,8 @@ import platform
 import logging
 import sys
 import time
+import traceback
+
 
 """ This module is just a template I use before performing magic """
 
@@ -59,11 +61,12 @@ def main(argv=None):
         else:
             do_work_son(args)
     except Exception as e:
-        logging.error("OMGWTFBBQ: {0}".format(e.args))
+        trace = traceback.format_exc()
+        logging.error("OMGWTFBBQ: {0}".format(trace))
         sys.exit(1)
 
     # Yayyy-yah
-    return 0
+    sys.exit(0)
 
 
 def _test():
