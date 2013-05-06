@@ -6,6 +6,7 @@ import sys
 import logging
 import argparse
 import os
+import traceback
 
 from utilities import get_unfollowers
 
@@ -42,12 +43,13 @@ def main(argv=None):
         unfollowers = get_unfollowers(config_fname, args.screen_name)
         print("There are {0} people you follow who do not follow you back"
               .format(len(unfollowers)))
-    except Exception as e:
-        logging.error("OMGWTFBBQ: {0}".format(e.args))
+    except:
+        trace = traceback.format_exc()
+        logging.error("OMGWTFBBQ: {0}".format(trace))
         sys.exit(1)
 
     # Yayyy-yah
-    return 0
+    sys.exit(0)
 
 
 if __name__ == "__main__":

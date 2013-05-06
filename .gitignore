@@ -1,0 +1,14 @@
+# Mac
+.DS_Store
+
+# Erlang
+.eunit
+deps
+priv
+*.o
+*.beam
+*.plt
+
+# Python
+*.pyc
+twitter.config.json

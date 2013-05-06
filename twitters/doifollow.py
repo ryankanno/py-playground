@@ -6,6 +6,7 @@ import sys
 import logging
 import argparse
 import os
+import traceback
 
 from utilities import doifollow
 
@@ -43,12 +44,13 @@ def main(argv=None):
             print("You are following {0}".format(args.screen_name))
         else:
             print("You are not following {0}".format(args.screen_name))
-    except Exception as e:
-        logging.error("OMGWTFBBQ: {0}".format(e.args))
+    except:
+        trace = traceback.format_exc()
+        logging.error("OMGWTFBBQ: {0}".format(trace))
         sys.exit(1)
 
     # Yayyy-yah
-    return 0
+    sys.exit(0)
 
 
 if __name__ == "__main__":

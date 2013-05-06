@@ -6,6 +6,7 @@ import sys
 import logging
 import argparse
 import os
+import traceback
 
 from utilities import get_followers
 
@@ -42,12 +43,13 @@ def main(argv=None):
             else DEFAULT_TWITTER_CONFIG_FNAME
         followers = get_followers(config_fname, args.screen_name)
         print("{0} has {1} followers".format(args.screen_name, len(followers)))
-    except Exception as e:
-        logging.error("OMGWTFBBQ: {0}".format(e.args))
+    except:
+        trace = traceback.format_exc()
+        logging.error("OMGWTFBBQ: {0}".format(trace))
         sys.exit(1)
 
     # Yayyy-yah
-    return 0
+    sys.exit(0)
 
 
 if __name__ == "__main__":

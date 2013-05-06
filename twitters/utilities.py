@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import json
 from twython import Twython
 
@@ -104,3 +107,5 @@ def get_unfollowers(config_fname, screen_name=None):
     friends = get_friends(config_fname, screen_name)
     followers = get_followers(config_fname, screen_name)
     return [x for x in friends if x not in followers]
+
+# vim: filetype=python
