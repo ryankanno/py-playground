@@ -17,9 +17,8 @@ __url__ = ""
 __version__ = ""
 __license__ = ""
 
-LOG_LEVEL = logging.DEBUG
-LOG_FORMAT = '%(asctime)s %(levelname)s %(message)s'
 
+LOG_FORMAT = '%(asctime)s %(levelname)s %(message)s'
 
 # Timing decorator
 def timing(func):
@@ -38,6 +37,8 @@ def init_argparser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('-t', '--run-tests', action='store_true',
                         help='run all tests')
+    parser.add_argument('-v', '--verbose', action='store_true', 
+                        help='increase chattiness of script')
     return parser
 
 
@@ -47,20 +48,21 @@ def do_work_son(args):
 
 
 def main(argv=None):
-    logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
-
     if argv is None:
         argv = sys.argv
 
     parser = init_argparser()
     args = parser.parse_args(argv)
 
+    log_level = logging.DEBUG if args.verbose else logging.INFO
+    logging.basicConfig(level=log_level, format=LOG_FORMAT)
+
     try:
         if args.run_tests:
             _test()
         else:
             do_work_son(args)
-    except Exception as e:
+    except:
         trace = traceback.format_exc()
         logging.error("OMGWTFBBQ: {0}".format(trace))
         sys.exit(1)
