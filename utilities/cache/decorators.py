@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import inspect
 import logging
 
@@ -40,3 +43,5 @@ def cacheable(cache, key=None, ttl=60, enabled=True):
                 return fxn(*args, **kwargs)
         return wrapper
     return decorator
+
+# vim: filetype=python

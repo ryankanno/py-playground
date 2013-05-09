@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
 import time
 import logging
@@ -37,3 +40,5 @@ def cache_set(cache, key, val, ttl=0, being_refreshed=False):
     real_ttl = time.time() + ttl
     stored_val = (val, real_ttl, being_refreshed)
     return cache.set(key, stored_val)
+
+# vim: filetype=python

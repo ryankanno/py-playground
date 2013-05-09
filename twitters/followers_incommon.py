@@ -53,7 +53,6 @@ def main(argv=None):
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
     sys.exit(main(sys.argv[1:]))
 
 # vim: filetype=python
