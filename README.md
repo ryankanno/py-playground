@@ -26,6 +26,13 @@ A small script I wrote long ago to email web pages via cron.  Works, but
 probably terrible.
 
 
+Misc
+====
+
+skeleton.py - I use this as a template for every Python script I write. If
+you know of anything I should add to them, I definitely take pull requests! :D
+
+
 Disclaimer
 ==========
 

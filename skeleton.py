@@ -9,7 +9,7 @@ import time
 import traceback
 
 
-""" This module is just a template I use before performing magic """
+""" This is a skeleton template I use before writing any magic """
 
 __all__ = ['main']
 __author__ = ""
