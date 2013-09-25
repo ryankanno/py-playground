@@ -44,7 +44,7 @@ def init_argparser():
                         help='directory to store crawl')
     parser.add_argument('-t', '--run-tests', action='store_true',
                         help='run all tests')
-    parser.add_argument('-v', '--verbose', action='store_true', 
+    parser.add_argument('-v', '--verbose', action='store_true',
                         help='increase chattiness of script')
     return parser
 
@@ -91,14 +91,14 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     log_level = logging.DEBUG if args.verbose else logging.INFO
-    logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
+    logging.basicConfig(level=log_level, format=LOG_FORMAT)
 
     try:
         if args.run_tests:
             _test()
         else:
             do_crawl_son(args)
-    except Exception as e:
+    except:
         trace = traceback.format_exc()
         logging.error("OMGWTFBBQ: {0}".format(trace))
         sys.exit(1)
