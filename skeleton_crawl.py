@@ -24,19 +24,6 @@ __license__ = ""
 LOG_FORMAT = '%(asctime)s %(levelname)s %(message)s'
 
 
-# Timing decorator
-def timing(func):
-    def wrapper(*args, **kwargs):
-        start = time.clock() if 'Windows' == platform.system() \
-            else time.time()
-        result = func(*args, **kwargs)
-        end = time.clock() if 'Windows' == platform.system() else time.time()
-        logging.info("{0} took {1:.3g} ms".format(func.func_name,
-                    (end - start) * 1000.0))
-        return result
-    return wrapper
-
-
 def init_argparser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('url', help='url to crawl')
