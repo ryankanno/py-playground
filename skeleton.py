@@ -2,8 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import argparse
+import cProfile
+import functools
 import platform
+import pstats
 import logging
+import StringIO
 import sys
 import time
 import traceback
@@ -21,6 +25,22 @@ __license__ = ""
 LOG_FORMAT = '%(asctime)s %(levelname)s %(message)s'
 
 
+def profile(sortby='cumulative'):
+    def _inner(func):
+        @functools.wraps(func)
+        def _wrapper(*args, **kwargs):
+            pr = cProfile.Profile()
+            pr.enable()
+            retval = pr.runcall(func, *args, **kwargs)
+            pr.disable()
+            s = StringIO.StringIO()
+            pstats.Stats(pr, stream=s).sort_stats(sortby).print_stats()
+            print s.getvalue()
+            return retval
+        return _wrapper
+    return _inner
+
+
 def init_argparser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('-t', '--run-tests', action='store_true',
@@ -30,6 +50,7 @@ def init_argparser():
     return parser
 
 
+@profile()
 def do_work_son(args):
     pass
 
