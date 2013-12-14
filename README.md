@@ -1,5 +1,7 @@
-Python playground
-=================
+# Python playground
+
+[![Build Status](https://travis-ci.org/ryankanno/py-playground.png?branch=master)](https://travis-ci.org/ryankanno/py-playground)
+[![Coverage Status](https://coveralls.io/repos/ryankanno/py-playground/badge.png)](https://coveralls.io/r/ryankanno/py-playground)
 
 This is just a collection of random Python scripts I've created over the years
 of coding.  If you use any of these scripts, send me some love! :D 

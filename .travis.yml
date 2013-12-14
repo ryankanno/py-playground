@@ -1,0 +1,10 @@
+language: python
+python:
+  - 2.7
+install:
+  - pip install nosexcover
+  - pip install coveralls
+script:
+    nosetests --with-xcoverage --cover-package=py_utilities --cover-tests --with-doctest
+after_success:
+  - coveralls
