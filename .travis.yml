@@ -7,6 +7,6 @@ install:
   - pip install mechanize
   - pip install twython
 script:
-    nosetests --with-xcoverage --cover-package=py_utilities --cover-tests --with-doctest
+    nosetests --with-xcoverage --cover-package=twitters --cover-package=utilities --cover-package=web2email --cover-package=./ --cover-tests --with-doctest
 after_success:
   - coveralls
