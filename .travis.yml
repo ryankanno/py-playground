@@ -4,6 +4,8 @@ python:
 install:
   - pip install nosexcover
   - pip install coveralls
+  - pip install mechanize
+  - pip install twython
 script:
     nosetests --with-xcoverage --cover-package=py_utilities --cover-tests --with-doctest
 after_success:
