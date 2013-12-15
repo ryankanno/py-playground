@@ -6,6 +6,7 @@ install:
   - pip install coveralls
   - pip install mechanize
   - pip install twython
+  - pip install BeautifulSoup
 script:
     nosetests --with-xcoverage --cover-package=twitters --cover-package=utilities --cover-package=web2email --cover-package=./ --cover-tests --with-doctest
 after_success:
