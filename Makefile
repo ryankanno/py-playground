@@ -9,10 +9,10 @@ nosetests:
 	@$(NOSETESTS) --with-doctest
 
 nosetests.coverage:
-	@$(NOSETESTS) --with-xcoverage --cover-package=py_api --cover-tests --with-doctest
+	@$(NOSETESTS) --with-xcoverage --cover-tests --with-doctest
 
 flake8:
-	@flake8 py_api tests
+	@flake8 *.py twitters utilities web2email
 
 clean:
 	@rm -rf .coverage
