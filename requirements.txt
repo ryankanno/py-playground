@@ -1,2 +1,7 @@
-nose
+BeautifulSoup
+flake8
+mechanize
 mock
+nose
+nosexcover
+twython
