@@ -4,12 +4,10 @@
 import argparse
 import cProfile
 import functools
-import platform
-import pstats
 import logging
+import pstats
 import StringIO
 import sys
-import time
 import traceback
 
 

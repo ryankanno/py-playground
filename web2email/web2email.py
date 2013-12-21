@@ -203,7 +203,6 @@ def main():
 
     if options.test:
         _test()  # Too lazy to write a test for this script.  @TODO - use mocks
-        j
 
     # Retrieve URL and return html
     html = getPage(args[0])

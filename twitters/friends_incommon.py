@@ -43,7 +43,7 @@ def main(argv=None):
         incommon = friends_incommon(config_fname, args.screen_name)
         print("You have {0} friends in common with {1}".
               format(len(incommon), args.screen_name))
-    except Exception as e:
+    except:
         trace = traceback.format_exc()
         logging.error("OMGWTFBBQ: {0}".format(trace))
         sys.exit(1)
